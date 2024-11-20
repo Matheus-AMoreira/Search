@@ -2,6 +2,7 @@ package com.Search.Bonten.Controller;
 
 import com.Search.Bonten.Model.Product;
 import com.Search.Bonten.Repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ public class ProductController {
 
     private final ProductRepository productRepository;
 
+    @Autowired
     public ProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }

@@ -1,7 +1,7 @@
-interface Product {
-    id?: number;
-    nome: String;
-    img: String;
-    preco: number;
-    cnpj?: String;
+interface Products {
+    prd_id?: number;
+    prd_name: String;
+    prd_img: String;
+    prd_preco: number;
+    loj_cnpj?: String;
 }
