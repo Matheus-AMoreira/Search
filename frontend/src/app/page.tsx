@@ -7,7 +7,7 @@ export default async function Home() {
   const products:Products[] = await response.json().catch(error => console.log(error))
   console.log(products)
   return (
-    <div className="flex mt-8 place-content-evenly">
+    <div className="flex mt-4 place-content-evenly flex-wrap">
         {products.length > 0 ?
           products.map((product: Products) =>
           <ProductCard data={product}/>

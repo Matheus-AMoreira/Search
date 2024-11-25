@@ -1,29 +1,43 @@
 package com.Search.Bonten.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.opencsv.bean.CsvBindByName;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "prd_produto")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "prd_produto", schema="public")
 public class Product {
 
     @Id
-    private Long prd_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="prd_id")
+    private Long id;
 
-    @Column(length = 50, nullable = false)
-    private String prd_name;
+    @Column(name = "prd_nome", length = 50, nullable = false)
+    @CsvBindByName(column = "prd_nome")
+    private String nome;
 
-    @Column(length = 50)
-    private String prd_img;
+    @Column(name = "prd_preco", nullable = false)
+    @CsvBindByName(column = "prd_preco")
+    private java.math.BigDecimal preco;
 
-    @Column(length = 50)
-    private int prd_price;
+    @Column(name = "prd_atualizacao", nullable = true)
+    @CsvBindByName(column = "prd_atualizacao")
+    private java.sql.Date atualizacao;
 
-    @Column(length = 14, nullable = false)
-    private String loj_cnpj;
+    @Column(name = "prd_img", length = 50)
+    @CsvBindByName(column = "prd_img")
+    private String imagem;
+
+    @Column(name = "loj_cnpj", length = 14, nullable = false)
+    @CsvBindByName(column = "loj_cnpj")
+    private String cnpj;
 
 }
