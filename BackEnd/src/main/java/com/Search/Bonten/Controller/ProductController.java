@@ -32,7 +32,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/upload", consumes = {"multipart/form-data"})
-    public ResponseEntity<Integer> uploadProducts(@RequestPart("file")MultipartFile file) throws IOException {
+    public ResponseEntity<Integer> uploadProducts(@RequestBody MultipartFile file) throws IOException {
         return ResponseEntity.ok(service.uploadProducts(file));
     }
 }
